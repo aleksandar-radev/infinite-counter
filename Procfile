@@ -1,1 +1,0 @@
-web: java -jar out/artifacts/infiniteCounter_jar/infiniteCounter.jar
