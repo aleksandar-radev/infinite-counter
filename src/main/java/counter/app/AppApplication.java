@@ -1,13 +1,13 @@
-package counter.demo;
+package counter.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CounterAppApplication {
+public class AppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CounterAppApplication.class, args);
+		SpringApplication.run(AppApplication.class, args);
 	}
 
 }

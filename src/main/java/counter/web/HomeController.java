@@ -1,4 +1,4 @@
-package counter.demo.web;
+package counter.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

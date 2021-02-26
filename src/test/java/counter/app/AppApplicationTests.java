@@ -1,10 +1,10 @@
-package counter.demo;
+package counter.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CounterAppApplicationTests {
+class AppApplicationTests {
 
 	@Test
 	void contextLoads() {
