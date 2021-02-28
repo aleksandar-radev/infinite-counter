@@ -10,6 +10,7 @@ public class AppApplication {
 		SpringApplication.run(AppApplication.class, args);
 		Engine engine = new Engine();
 		engine.run();
+		System.out.println("asdas");
 	}
 
 }
