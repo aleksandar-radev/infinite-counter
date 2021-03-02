@@ -10,6 +10,14 @@ public class Count {
     private long id;
     private long count;
 
+    public Count() {
+    }
+
+    public Count(long id, long count) {
+        this.id = id;
+        this.count = count;
+    }
+
     public long getId() {
         return id;
     }

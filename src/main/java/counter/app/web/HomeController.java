@@ -1,5 +1,6 @@
 package counter.app.web;
 
+import counter.app.entities.Count;
 import counter.app.repositories.CountRepository;
 import counter.app.services.CountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,8 @@ public class HomeController {
 
     @GetMapping("/")
     String test() {
-
-        return "index";
-    }
-
-    @GetMapping("/hell")
-    String test2() {
-        return "hell's kitchen";
+        this.countService.increment();
+        return this.countRepository.getOne(1L).toString();
     }
 
 
