@@ -6,6 +6,7 @@ import counter.app.services.CountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,25 +27,13 @@ public class HomeController {
         ModelAndView modelAndView = new ModelAndView("index");
 
         Count count = new Count(1L, 0);
+
         if (!this.countService.getCountById(1L).isPresent()) {
             this.countRepository.saveAndFlush(count);
         }
         this.countService.increment();
+
         modelAndView.addObject("count", this.countService.getCountById(1L).get().toString());
         return modelAndView;
     }
-
-
-
-
-//    @PostMapping("/")
-//    public ModelAndView regCon(@Valid @ModelAttribute("user") User user, BindingResult bindingResult, ModelAndView modelAndView,
-//                               HttpServletResponse httpServletResponse) {
-//
-//
-//        System.out.println(1);
-//        System.out.println();
-//
-//        return modelAndView;
-//    }
 }
