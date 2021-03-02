@@ -20,7 +20,7 @@ public class Engine implements Runnable {
 
     @Override
     public void run() {
-        Count count = new Count(1, 0);
+        Count count = new Count(1L, 0);
         this.countRepository.saveAndFlush(count);
     }
 }

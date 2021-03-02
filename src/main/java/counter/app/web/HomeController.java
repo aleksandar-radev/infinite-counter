@@ -20,10 +20,15 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public Count test() {
-//        this.countService.increment();
-        return this.countRepository.getOne(1L);
-//        return "index";
+    public String test() {
+
+        Count count = new Count(1L, 0);
+        if (!this.countService.getCountById(1L).isPresent()) {
+            this.countRepository.saveAndFlush(count);
+        }
+        this.countService.increment();
+
+        return this.countService.getCountById(1L).get().toString();
     }
 
 

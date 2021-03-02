@@ -22,9 +22,10 @@ public class CountServiceImpl implements CountService {
     public void increment() {
         Count count = countRepository.getOne(1L);
         count.setCount(count.getCount() + 1);
+        this.countRepository.saveAndFlush(count);
     }
 
-    public Count getCountById(Long id) {
-        return this.countRepository.getOne(id);
+    public Optional<Count> getCountById(Long id) {
+        return this.countRepository.findById(id);
     }
 }
