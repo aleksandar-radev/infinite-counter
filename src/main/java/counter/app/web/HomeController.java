@@ -5,9 +5,11 @@ import counter.app.repositories.CountRepository;
 import counter.app.services.CountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+@Controller
 public class HomeController {
 
     private final CountRepository countRepository;
@@ -20,15 +22,16 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public String test() {
+    public ModelAndView test() {
+        ModelAndView modelAndView = new ModelAndView("index");
 
         Count count = new Count(1L, 0);
         if (!this.countService.getCountById(1L).isPresent()) {
             this.countRepository.saveAndFlush(count);
         }
         this.countService.increment();
-
-        return this.countService.getCountById(1L).get().toString();
+        modelAndView.addObject("count", this.countService.getCountById(1L).get().toString());
+        return modelAndView;
     }
 
 
