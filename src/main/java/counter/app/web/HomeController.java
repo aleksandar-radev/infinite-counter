@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 public class HomeController {
 
     private final CountRepository countRepository;
@@ -22,8 +22,8 @@ public class HomeController {
     @GetMapping("/")
     String test() {
         this.countService.increment();
-        return this.countRepository.getOne(1L).toString();
-//        return "index";
+//        return this.countRepository.getOne(1L).toString();
+        return "index";
     }
 
 
