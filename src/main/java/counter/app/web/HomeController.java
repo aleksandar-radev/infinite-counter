@@ -1,13 +1,21 @@
 package counter.app.web;
 
-import org.springframework.stereotype.Controller;
+import counter.app.repositories.CountRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 public class HomeController {
 
+    private final CountRepository countRepository;
+
+    @Autowired
+    public HomeController(CountRepository countRepository) {
+        this.countRepository = countRepository;
+    }
+
     @GetMapping("/")
-    public String test() {
+    String test() {
         return "index";
     }
 

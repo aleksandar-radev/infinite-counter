@@ -3,11 +3,10 @@ package counter.app.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Counters")
 public class Count {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private long id;
     private long count;
 
