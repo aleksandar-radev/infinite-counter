@@ -20,9 +20,9 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    String test() {
+    public Count test() {
 //        this.countService.increment();
-        return this.countRepository.getOne(1L).toString();
+        return this.countRepository.getOne(1L);
 //        return "index";
     }
 
