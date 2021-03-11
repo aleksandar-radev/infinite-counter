@@ -10,6 +10,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.text.DecimalFormat;
+
 @Controller
 public class HomeController {
 
@@ -33,7 +35,13 @@ public class HomeController {
         }
         this.countService.increment();
 
-        modelAndView.addObject("count", this.countService.getCountById(1L).get().toString());
+        modelAndView.addObject("count", formatNumber(this.countService.getCountById(1L).get().getCount()));
         return modelAndView;
+    }
+
+    private String formatNumber(Long num) {
+
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
+        return decimalFormat.format(num);
     }
 }
